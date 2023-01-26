@@ -2,11 +2,16 @@ package com.br.ejs.generics.interfaceGenerics;
 
 public class Principal {
 
-    private static void  retirarTodo(Colecao<Produto> produtos){
+    /*
+        "?" operador coringa ele permite que a "Colecao" seja de qualquer tipo, ou seja,
+        a colecao pode ser de String, Integer ou um objeto de criação própria
+        o uso Colecao<?> equivale a Colecao<? extends Object> o compilaor inferi que extends de Object
+     */
+    private static void  retirarTodo(Colecao<?> objetos){
         try {
             while (true){
-                Produto p = produtos.retirar();
-                System.out.println(p.getDescricao());
+                Object o = objetos.retirar();
+                System.out.printf(" %s%n", o.toString());
             }
         }catch (ColecaoVaziaException e){
             System.out.println(e.getMessage());
@@ -25,9 +30,9 @@ public class Principal {
         retirarTodo(produtos);
         System.out.println("pilha");
 
-        var outraPilha = new Pilha<Produto>();
-        outraPilha.colocar(p);
-        outraPilha.colocar(p2);
+        var outraPilha = new Pilha<String>();
+        outraPilha.colocar("teste 1");
+        outraPilha.colocar("teste 2");
 
         retirarTodo(outraPilha);
     }
