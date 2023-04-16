@@ -3,6 +3,7 @@ package com.br.ejs.apiStream.estoque;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Produto implements Comparable<Produto> {
