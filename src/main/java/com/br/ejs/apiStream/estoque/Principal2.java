@@ -2,6 +2,7 @@ package com.br.ejs.apiStream.estoque;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
@@ -28,7 +29,45 @@ public class Principal2 {
         productsWithStock(produtos);
         System.out.println("--------------- LISTING MANUFACTURERS ---------------------");
         listingManufacturersOfProducts(produtos);
+        System.out.println("--------------- PRODUCTS BY MANUFACURERS ------------------");
+        productsByManufacturers(produtos);
+        System.out.println("--------------- STOCK BY MANUFACTURERS ---------------------");
+        stockByManufacturers(produtos);
+        System.out.println("--------------- CHECKING STOCK ---------------------");
+        checkingStocck(produtos);
+    }
 
+    private static void checkingStocck(List<Produto> produtos) {
+        Map<Boolean, List<Produto>> hasStock = produtos.stream()
+                .collect(Collectors.partitioningBy(Produto::temEstoque));
+
+        hasStock.forEach((aBoolean, produtos1) -> {
+            produtos1.forEach(p ->{
+                String has = aBoolean ? " has, quantity? " + p.getQuantidade() +"." : "hasn't." ;
+                System.out.println(p.getNome() + " has stock: " + has );
+                System.out.println("--------------------");
+            });
+        });
+    }
+
+    private static void stockByManufacturers(List<Produto> produtos){
+        Map<String, Integer> stockByManufacturers = produtos.stream()
+                .filter(Produto::temEstoque)
+                .collect(
+                        Collectors.groupingBy(produto -> produto.getFabricante().nome(),
+                        Collectors.summingInt(Produto::getQuantidade))
+                );
+        System.out.println(stockByManufacturers);
+    }
+
+    private static void productsByManufacturers(List<Produto> produtos) {
+        Map<String, Long> productsByManufacturers = produtos.stream()
+                .filter(Produto::temEstoque)
+                .collect(
+                        Collectors.groupingBy(produto -> produto.getFabricante().nome(),
+                        Collectors.counting())
+                );
+        System.out.println(productsByManufacturers);
     }
 
     private static void listingManufacturersOfProducts(List<Produto> produtos) {
