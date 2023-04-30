@@ -110,8 +110,9 @@ public class Principal {
     }
 
     private static void readingPhoto() {
-        File origin = new File("src/main/resources/inputOutputFiles/photo.jpg");
-        File destination = new File("src/main/resources/inputOutputFiles/photo2.jpg");
+        System.out.println("################ READING PHOTO ###########################3");
+        File origin = new File("src/main/resources/inputOutputFiles/photo.jpeg");
+        File destination = new File("src/main/resources/inputOutputFiles/photo2.jpeg");
 
         // using the try in the wat bellow we don't have to close the InputStream or the OutputStream
         try (InputStream inputStream = new FileInputStream(origin);
@@ -119,7 +120,7 @@ public class Principal {
             byte[] content = new byte[1024]; // this allow to read 1024 bytes of the file without this the file will be read byte by byte
             int amountOfBytes;
             while ((amountOfBytes = inputStream.read(content)) > 0){
-                outputStream.write(amountOfBytes);
+                outputStream.write(content, 0, amountOfBytes);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
