@@ -7,7 +7,7 @@ public class Principal {
     public static void main(String[] args) throws IOException {
         readingFile();
         bestPratice();
-        readingPhoto();
+        copyingPhoto();
         readingTextFile("text2.txt");
         writingTextInFile();
         lineReader();
@@ -109,8 +109,8 @@ public class Principal {
         System.out.println(texto.toString());
     }
 
-    private static void readingPhoto() {
-        System.out.println("################ READING PHOTO ###########################3");
+    private static void copyingPhoto() {
+        System.out.println("################ COPYING PHOTO ###########################3");
         File origin = new File("src/main/resources/inputOutputFiles/photo.jpeg");
         File destination = new File("src/main/resources/inputOutputFiles/photo2.jpeg");
 

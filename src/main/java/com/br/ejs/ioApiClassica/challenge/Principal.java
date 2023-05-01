@@ -5,9 +5,9 @@ import java.io.IOException;
 
 public class Principal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         brokeImage();
-//        unifyImage();
+        unifyImage();
         contentFileToUpperCase();
     }
 
@@ -24,11 +24,10 @@ public class Principal {
 
     }
 
-    public  static void unifyImage(){
+    public  static void unifyImage() throws IOException {
         var unify = new UnifyFile(
-                new File("src/main/resources/inputOutputFiles/brokenFiles"),
-                new File("src/main/resources/inputOutputFiles/brokenFiles/photo2.jpeg"),
-                "photo2.jpg"
+                new File("src/main/resources/inputOutputFiles/piecesPhoto"),
+                new File("src/main/resources/inputOutputFiles/piecesPhoto/unifiedPhoto.jpeg")
         );
         unify.unifyFile();
     }
@@ -37,7 +36,7 @@ public class Principal {
         try {
             var shredder = new ShredderFile(
                     new File("src/main/resources/inputOutputFiles/photo2.jpeg"),
-                    1024 * 50);
+                    (1024 * 50));
             shredder.breakFile();
         } catch (Exception e){
             e.printStackTrace();

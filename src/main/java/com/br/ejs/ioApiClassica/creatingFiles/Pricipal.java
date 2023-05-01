@@ -24,34 +24,7 @@ public class Pricipal {
         canWriteFile();
         deletingFolder();
         listingFiles();
-//        renamingFilesFromFolderVideos();
-    }
 
-    private static void renamingFilesFromFolderVideos() {
-        File videos = new File("/home/edson/Vídeos");
-        File[] files = videos.listFiles(File::isFile);
-//        Set<Integer> mix = new HashSet<>(1000);
-//        Random random = new Random();
-
-        long name = 9548;
-        if (files != null){
-//            for (int i = 0; i < files.length + 100; i++) {
-//                mix.add(Integer.valueOf(random.nextInt(1000) * random.nextInt(1000)));
-//            }
-//            List<Integer> mixList = new ArrayList<>(mix);
-//            System.out.println(mixList);
-            for (int i = 0; i < files.length; i++) {
-                File newName = new File("/home/edson/Vídeos/" +  name);
-                try {
-//                    System.out.println(files[i].getName());
-                    System.out.println(files[i].renameTo(newName));
-                    name++;
-                } catch (RuntimeException e){
-                    e.printStackTrace();
-                }
-            }
-//            System.out.println(mix);
-        }
     }
 
     private static void listingFiles() throws IOException {
@@ -214,6 +187,15 @@ public class Pricipal {
         System.out.printf("Parent folder: %s%n", documents.getName());
     }
 
+    public static  void renamingFolder(){
+        File folder1 = new File("/home/edson/git/EspecialistaJava/src/main/resources/folder1");
+        File folder2 = new File("/home/edson/git/EspecialistaJava/src/main/resources/documents");
+        System.out.println("######################### RENAMING #######################");
+        System.out.printf("old name: %s%n ", folder1.getName());
+        System.out.printf("renamed? %s%n", folder1.renameTo(folder2) ? "yes": "no");
+        System.out.println("new name: " + folder1.getName());
+    }
+
     public static void deletingFolder(){
         /**
          * to delete a folder it must be empty
@@ -225,15 +207,6 @@ public class Pricipal {
         System.out.printf("File1 deleted: %b%n", file1.delete());
         System.out.printf("File2 deleted: %b%n", file2.delete());
         System.out.printf("Documents deleted: %b%n", documents.delete());
-    }
-
-    public static  void renamingFolder(){
-        File folder1 = new File("/home/edson/git/EspecialistaJava/src/main/resources/folder1");
-        File folder2 = new File("/home/edson/git/EspecialistaJava/src/main/resources/documents");
-        System.out.println("######################### RENAMING #######################");
-        System.out.printf("old name: %s%n ", folder1.getName());
-        System.out.printf("renamed? %s%n", folder1.renameTo(folder2) ? "yes": "no");
-        System.out.println("new name: " + folder1.getName());
     }
 
     public static void testingPathFiles() throws IOException {
