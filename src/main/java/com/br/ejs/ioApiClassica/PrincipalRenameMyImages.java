@@ -35,7 +35,7 @@ public class PrincipalRenameMyImages {
         File videos = new File("/home/edson/Vídeos");
         File[] files = videos.listFiles(File::isFile);
         // always change
-        long name = 9801;
+        long name = 9982;
         files = videos.listFiles(File::isFile);
         if (files != null){
             for (int i = 0; i < files.length; i++){
