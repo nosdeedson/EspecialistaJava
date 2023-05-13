@@ -3,8 +3,13 @@ package com.br.ejs.NewIO.functionalities;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,10 +32,11 @@ public class Principal {
         usingfind();
         deletingFilesAndFolders();
         deletingRecursively();
+
     }
 
     private static void usingfind() throws IOException {
-        System.out.println("############################## USING FINF OF FILES ###############################");
+        System.out.println("############################## USING FIND OF FILES ###############################");
         Path path = Path.of("src/main/resources/NewIOFiles");
         /*
         find requires a path, how many folders to enter in the case bellow was passed 'Integer.MAX'
