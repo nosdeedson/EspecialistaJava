@@ -1,0 +1,20 @@
+2023-05-20 20:59:21 WARN  c.b.e.l.s.b.n.Titular - Nome do titular 'João' muito curto
+2023-05-20 20:59:21 DEBUG c.b.e.l.s.b.n.ContaCorrente - Realizando depósito...
+2023-05-20 20:59:21 INFO  c.b.e.l.s.b.n.ContaCorrente - Depósito de R$200 realizado na conta 100/9999
+2023-05-20 20:59:21 DEBUG c.b.e.l.s.b.n.ContaCorrente - Realizando saque...
+2023-05-20 20:59:21 INFO  c.b.e.l.s.b.n.ContaCorrente - Saque de R$50.5 realizado na conta 100/9999
+2023-05-20 20:59:21 DEBUG c.b.e.l.s.b.n.ContaCorrente - Realizando saque...
+2023-05-20 20:59:21 ERROR c.b.e.l.s.b.Principal - Erro administrando conta corrente 100/9999
+java.lang.IllegalArgumentException: valor do saque deve ser maior que zero
+	at com.br.ejs.loggs.slf4jwithlogback.banco.negocio.ContaCorrente.sacar(ContaCorrente.java:35)
+	at com.br.ejs.loggs.slf4jwithlogback.banco.Principal.main(Principal.java:23)
+2023-05-20 20:59:42 WARN  c.b.e.l.s.b.n.Titular - Nome do titular 'João' muito curto
+2023-05-20 20:59:42 DEBUG c.b.e.l.s.b.n.ContaCorrente - Realizando depósito...
+2023-05-20 20:59:42 INFO  c.b.e.l.s.b.n.ContaCorrente - Depósito de R$200 realizado na conta 100/9999
+2023-05-20 20:59:42 DEBUG c.b.e.l.s.b.n.ContaCorrente - Realizando saque...
+2023-05-20 20:59:42 INFO  c.b.e.l.s.b.n.ContaCorrente - Saque de R$50.5 realizado na conta 100/9999
+2023-05-20 20:59:42 DEBUG c.b.e.l.s.b.n.ContaCorrente - Realizando saque...
+2023-05-20 20:59:42 ERROR c.b.e.l.s.b.Principal - Erro administrando conta corrente 100/9999
+java.lang.IllegalArgumentException: valor do saque deve ser maior que zero
+	at com.br.ejs.loggs.slf4jwithlogback.banco.negocio.ContaCorrente.sacar(ContaCorrente.java:35)
+	at com.br.ejs.loggs.slf4jwithlogback.banco.Principal.main(Principal.java:23)
